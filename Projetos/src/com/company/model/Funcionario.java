@@ -2,7 +2,7 @@ package com.company.model;
 
 //import java.util.Date;
 
-public class Funcionario {
+public class Funcionario extends Pessoa {
 	/* Atributos */
 	private int codigo = 100;
     private String cargo;
@@ -10,26 +10,31 @@ public class Funcionario {
     private String dataDemissao;
 
     /* Construtores */
+    public Funcionario() {
+    	super();
+    }
+    
     public Funcionario(Pessoa pes, String cargo, String dataAdmissao, String dataDemissao) {
-		super();
+		super(pes.getNome(), pes.getSobrenome(), pes.getSexo(), 
+	    		pes.getCfp(), pes.getDataNascimento(), pes.getEndereco());
 		this.codigo = hashCode();
 		this.cargo = cargo;
 		this.dataAdmissao = dataAdmissao;
 		this.dataDemissao = dataDemissao;
 	}
     
-    public Funcionario(String cargo, String dataAdmissao, String dataDemissao) {
-        this.codigo++;
-        this.cargo = cargo;
-        this.dataAdmissao = dataAdmissao;
-        this.dataDemissao = dataDemissao;
-    }
-    
-	Funcionario(String cargo, String dataAdmissao) {
-        this.codigo++;
-        this.cargo = cargo;
-        this.dataAdmissao = dataAdmissao;
-    }
+//    public Funcionario(String cargo, String dataAdmissao, String dataDemissao) {
+//        this.codigo++;
+//        this.cargo = cargo;
+//        this.dataAdmissao = dataAdmissao;
+//        this.dataDemissao = dataDemissao;
+//    }
+//    
+//	Funcionario(String cargo, String dataAdmissao) {
+//        this.codigo++;
+//        this.cargo = cargo;
+//        this.dataAdmissao = dataAdmissao;
+//    }
     
     /* Getters/Setters */
     public String getCargo() {

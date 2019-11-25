@@ -14,8 +14,6 @@ public class Main {
 	public static Scanner entrada, entradaCadastro;
 	
     public static void main(String[] args) {
-	// write your code here
-    	
     	int opcao;
     	entrada = new Scanner(System.in);
     	
@@ -26,7 +24,9 @@ public class Main {
     		System.out.println("\n 2 - Agendamentos;");
     		System.out.println("\n 3 - Buscar;");
     		System.out.println("\n 4 - Sair;");
+    		System.out.println("\nOpção: ");
     		opcao = entrada.nextInt();
+    		System.out.println("\n\n\n");
     		
     		switch(opcao) {
     		
@@ -61,25 +61,26 @@ public class Main {
     		System.out.println("\t\n 3 - Cliente;");
     		System.out.println("\t\n 4 - Animal;");
     		System.out.println("\t\n 5 - Retornar ao menu principal;");
+    		System.out.println("\nOpção: ");
     		opcao = entradaCadastro.nextInt();
+    		System.out.println("\n");
     		
     		switch(opcao) {
     		
 	    		case 1: // Cadastro Veterinário
 	    			Pessoa pessoa = cadastraPessoa();
 	    			Funcionario funcionario = cadastraFuncionario(0);
-	    			Veterinario vet;
-	    			String[] vetAux = new String[3];
+	    			Veterinario vet = new Veterinario();
 	    			
-	    			System.out.println("Insira as informações do Veterinário: ");
+	    			/* Cadastro Informações Veterinário */
+	    			System.out.println("\nInsira as informações do Veterinário(a): ");
 	    			System.out.println("E-mail: ");
-	    			vetAux[0] = entrada.nextLine();
+	    			vet.setEmail(entrada.next());
 	    			System.out.println("Telefone para Emergência: ");
-	    			vetAux[1] = entrada.nextLine();
+	    			vet.setTelefoneEmergencia(entrada.next());
 	    			System.out.println("CRMV: ");
-	    			vetAux[2] = entrada.nextLine();
+	    			vet.setCrmv(entrada.next());
 	    			
-	    			vet = new Veterinario(pessoa, funcionario, vetAux[0], vetAux[1], vetAux[2]);
 	    			break;
 	    		
 	    		case 2: // Cadastro 
@@ -199,32 +200,22 @@ public class Main {
 //    }
     
     public static Pessoa cadastraPessoa () {
-    	
+    	// TODO: Implementar a conversão de String para Data
     	Pessoa pessoa = new Pessoa();
-//    	String date;
     	
+    	System.out.println(" ----- Informações Pessoais ----- ");
     	System.out.println("Nome: ");
-		pessoa.setNome(entrada.nextLine());
-		System.out.println("Sobrnome: ");
-		pessoa.setSobrenome(entrada.nextLine());
+		pessoa.setNome(entrada.next());
+		System.out.println("Sobrenome: ");
+		pessoa.setSobrenome(entrada.next());
 		System.out.println("Sexo: ");
-		pessoa.setSexo(entrada.nextLine());
+		pessoa.setSexo(entrada.next());
 		System.out.println("CPF: ");
-		pessoa.setCfp(entrada.nextLine());
+		pessoa.setCfp(entrada.next());
 		System.out.println("Data de Nascimento:");
 		pessoa.setDataNascimento(entrada.next());
 		
-//		date = entrada.nextLine();
-//		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-//		
-//		try { 
-//			Date dateFormated = data.parse(date); 
-//		} catch (ParseException ex) {
-//			ex.printStackTrace(); 
-//		}
-//		pessoa.setDataNascimento(entrada.next());
-    	
-    	System.out.println("Endereço: ");
+		System.out.println("\n ----- Endereço ----- ");
 		pessoa.setEndereco(cadastraEndereco());
     	
     	return pessoa;
@@ -233,29 +224,27 @@ public class Main {
     public static Endereco cadastraEndereco() {
     	Endereco endereco = new Endereco();
     	
-    	System.out.println("Preecha o Endereço: ");
     	System.out.println("Logradouro: ");
-    	endereco.setLogradouro(entrada.nextLine());
+    	endereco.setLogradouro(entrada.next());
     	System.out.println("Número: ");
     	endereco.setNumero(entrada.nextInt());
     	System.out.println("Bairro: ");
-    	endereco.setBairro(entrada.nextLine());
+    	endereco.setBairro(entrada.next());
     	System.out.println("Cidade: ");
-    	endereco.setCidade(entrada.nextLine());
+    	endereco.setCidade(entrada.next());
     	System.out.println("Estado: ");
-    	endereco.setEstado(entrada.nextLine());
+    	endereco.setEstado(entrada.next());
     	System.out.println("CEP: ");
-    	endereco.setCep(entrada.nextLine());
+    	endereco.setCep(entrada.next());
     	
     	return endereco;
     }
     
     public static Funcionario cadastraFuncionario(int cargoFuncionario) {
     	Funcionario func = new Funcionario();
-
     	
+    	System.out.println("\n ----- Dados do Funcionário ----- ");
     	if (cargoFuncionario == 0) { // Funcionario
-    		System.out.println("Insira dados do Veterinario:");
     		func.setCargo("Veterinario");
     	} else { // Atendente
     		System.out.println("Insira dados do Atendente:");
@@ -263,9 +252,9 @@ public class Main {
     	}
     	
 		System.out.println("Data de Admissão: ");
-		func.setDataAdmissao(entrada.nextLine());
+		func.setDataAdmissao(entrada.next());
 		System.out.println("Data de Demissão: ");
-		func.setDataDemissao(entrada.nextLine());
+		func.setDataDemissao(entrada.next());
 		
 		return func;
     	

@@ -1,6 +1,6 @@
 package com.company.model;
 
-import java.util.Date;
+// import java.util.Date;
 
 public class Veterinario extends Funcionario {
     /* Atributos */
@@ -9,7 +9,10 @@ public class Veterinario extends Funcionario {
     private String crmv;
 
     /* Construtor */
-    /* COnstrutor especial passando as informações */
+    public Veterinario() {
+    	super();
+    }
+    
     public Veterinario(Pessoa pessoa, Funcionario func, String email, String telefoneEmergencia,
 			String crmv) {
     	super(pessoa, func.getCargo(), func.getDataAdmissao(), func.getDataDemissao());
@@ -18,13 +21,13 @@ public class Veterinario extends Funcionario {
 		this.crmv = crmv;
 	}
 
-	public Veterinario(String cargo, Date dataAdmissao, Date dataDemissao) {
-        super(cargo, dataAdmissao, dataDemissao);
-    }
-
-    public Veterinario(String cargo, Date dataAdmissao) {
-        super(cargo, dataAdmissao);
-    }
+//	public Veterinario(String cargo, Date dataAdmissao, Date dataDemissao) {
+//        super(cargo, dataAdmissao, dataDemissao);
+//    }
+//
+//    public Veterinario(String cargo, Date dataAdmissao) {
+//        super(cargo, dataAdmissao);
+//    }
     
     /* Setters/Getters */
     public String getEmail() {

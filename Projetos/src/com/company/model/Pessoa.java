@@ -12,6 +12,9 @@ public class Pessoa {
     private Endereco endereco;
 
     /* Construtor */
+    public Pessoa() {
+	}
+    
     public Pessoa(String nome, String sobrenome, String sexo, 
     		String cfp, String dataNascimento, Endereco endereco) {
         this.nome = nome;
@@ -22,7 +25,7 @@ public class Pessoa {
         this.endereco = endereco;
     }
     
-    /* Setters/Getters */
+	/* Setters/Getters */
     public String getNome() {
         return nome;
     }
