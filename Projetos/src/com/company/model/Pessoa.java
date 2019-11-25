@@ -1,15 +1,28 @@
 package com.company.model;
 
-import java.util.Date;
+//import java.util.Date;
 
 public class Pessoa {
-    private String nome;
+    /* Atributos */
+	private String nome;
     private String sobrenome;
     private String sexo;
     private String cfp;
-    private Date dataNascimento;
+    private String dataNascimento;
     private Endereco endereco;
 
+    /* Construtor */
+    public Pessoa(String nome, String sobrenome, String sexo, 
+    		String cfp, String dataNascimento, Endereco endereco) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.sexo = sexo;
+        this.cfp = cfp;
+        this.dataNascimento = dataNascimento;
+        this.endereco = endereco;
+    }
+    
+    /* Setters/Getters */
     public String getNome() {
         return nome;
     }
@@ -42,11 +55,11 @@ public class Pessoa {
         this.cfp = cfp;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -57,14 +70,9 @@ public class Pessoa {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-
-    public Pessoa(String nome, String sobrenome, String sexo, String cfp, Date dataNascimento, Endereco endereco) {
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.sexo = sexo;
-        this.cfp = cfp;
-        this.dataNascimento = dataNascimento;
-        this.endereco = endereco;
-    }
+    
+    
+    
+    
 
 }

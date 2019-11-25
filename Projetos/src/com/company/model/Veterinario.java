@@ -3,10 +3,30 @@ package com.company.model;
 import java.util.Date;
 
 public class Veterinario extends Funcionario {
-    private String email;
+    /* Atributos */
+	private String email;
     private String telefoneEmergencia;
     private String crmv;
 
+    /* Construtor */
+    /* COnstrutor especial passando as informações */
+    public Veterinario(Pessoa pessoa, Funcionario func, String email, String telefoneEmergencia,
+			String crmv) {
+    	super(pessoa, func.getCargo(), func.getDataAdmissao(), func.getDataDemissao());
+		this.email = email;
+		this.telefoneEmergencia = telefoneEmergencia;
+		this.crmv = crmv;
+	}
+
+	public Veterinario(String cargo, Date dataAdmissao, Date dataDemissao) {
+        super(cargo, dataAdmissao, dataDemissao);
+    }
+
+    public Veterinario(String cargo, Date dataAdmissao) {
+        super(cargo, dataAdmissao);
+    }
+    
+    /* Setters/Getters */
     public String getEmail() {
         return email;
     }
@@ -30,13 +50,5 @@ public class Veterinario extends Funcionario {
     public void setCrmv(String crmv) {
         this.crmv = crmv;
     }
-
-
-    public Veterinario(String cargo, Date dataAdmissao, Date dataDemissao) {
-        super(cargo, dataAdmissao, dataDemissao);
-    }
-
-    public Veterinario(String cargo, Date dataAdmissao) {
-        super(cargo, dataAdmissao);
-    }
+    
 }
