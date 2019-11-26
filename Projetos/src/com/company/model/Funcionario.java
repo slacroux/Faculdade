@@ -2,12 +2,13 @@ package com.company.model;
 
 //import java.util.Date;
 
+/* Transformar em abstract */
 public class Funcionario extends Pessoa {
 	/* Atributos */
 	private int codigo = 100;
     private String cargo;
-    private String dataAdmissao;
-    private String dataDemissao;
+    private String dataAdmissao;// TODO: Arrumar de String para Data depois do ajuste de conversão
+    private String dataDemissao;// TODO: Arrumar de String para Data depois do ajuste de conversão
 
     /* Construtores */
     public Funcionario() {
@@ -17,24 +18,24 @@ public class Funcionario extends Pessoa {
     public Funcionario(Pessoa pes, String cargo, String dataAdmissao, String dataDemissao) {
 		super(pes.getNome(), pes.getSobrenome(), pes.getSexo(), 
 	    		pes.getCfp(), pes.getDataNascimento(), pes.getEndereco());
-		this.codigo = hashCode();
+		this.codigo = hashCode(); // TODO: Descobrir se isso esta certo mesmo
 		this.cargo = cargo;
 		this.dataAdmissao = dataAdmissao;
 		this.dataDemissao = dataDemissao;
 	}
     
-//    public Funcionario(String cargo, String dataAdmissao, String dataDemissao) {
-//        this.codigo++;
-//        this.cargo = cargo;
-//        this.dataAdmissao = dataAdmissao;
-//        this.dataDemissao = dataDemissao;
-//    }
-//    
-//	Funcionario(String cargo, String dataAdmissao) {
-//        this.codigo++;
-//        this.cargo = cargo;
-//        this.dataAdmissao = dataAdmissao;
-//    }
+    public Funcionario(String cargo, String dataAdmissao, String dataDemissao) {
+        this.codigo++;
+        this.cargo = cargo;
+        this.dataAdmissao = dataAdmissao;
+        this.dataDemissao = dataDemissao;
+    }
+    
+	Funcionario(String cargo, String dataAdmissao) {
+        this.codigo++;
+        this.cargo = cargo;
+        this.dataAdmissao = dataAdmissao;
+    }
     
     /* Getters/Setters */
     public String getCargo() {
@@ -61,6 +62,7 @@ public class Funcionario extends Pessoa {
         this.dataDemissao = dataDemissao;
     }
 
+	// TODO: Acho que não precisa de todos os atributos pra gerar o Hascode
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -101,6 +103,9 @@ public class Funcionario extends Pessoa {
 		return true;
 	}
     
-    
-
+	// TODO: Criar método herdado em Atendente e Veterinário
+    public void atende() {
+    	
+    }
+	
 }

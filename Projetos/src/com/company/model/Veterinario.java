@@ -54,4 +54,9 @@ public class Veterinario extends Funcionario {
         this.crmv = crmv;
     }
     
+    
+    public void atende() {
+		
+	}
+    
 }

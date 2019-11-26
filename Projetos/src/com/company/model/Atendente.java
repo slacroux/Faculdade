@@ -33,5 +33,9 @@ public class Atendente extends Funcionario {
     	
     }
 	
+	public void atende() {
+		
+	}
+	
 }
 

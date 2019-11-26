@@ -2,16 +2,17 @@ package com.company.model;
 
 //import java.util.Date;
 
+/* Transformar em abstract */
 public class Pessoa {
     /* Atributos */
 	private String nome;
     private String sobrenome;
     private String sexo;
     private String cfp;
-    private String dataNascimento;
+    private String dataNascimento; // TODO: Arrumar de String para Data depois do ajuste de conversão
     private Endereco endereco;
 
-    /* Construtor */
+    /* Construtores */
     public Pessoa() {
 	}
     
@@ -74,8 +75,4 @@ public class Pessoa {
         this.endereco = endereco;
     }
     
-    
-    
-    
-
 }

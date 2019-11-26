@@ -3,6 +3,7 @@ package com.company;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 import com.company.model.Endereco;
 import com.company.model.Funcionario;
@@ -54,6 +55,7 @@ public class Main {
     public static void menuCadastros() {
     	int opcao;
     	entradaCadastro = new Scanner(System.in);
+    	
     	do {
     		System.out.println("Cadastar:");
     		System.out.println("\t\n 1 - Veterinário;");
@@ -68,24 +70,15 @@ public class Main {
     		switch(opcao) {
     		
 	    		case 1: // Cadastro Veterinário
-	    			Pessoa pessoa = cadastraPessoa();
-	    			Funcionario funcionario = cadastraFuncionario(0);
 	    			Veterinario vet = new Veterinario();
-	    			
-	    			/* Cadastro Informações Veterinário */
-	    			System.out.println("\nInsira as informações do Veterinário(a): ");
-	    			System.out.println("E-mail: ");
-	    			vet.setEmail(entrada.next());
-	    			System.out.println("Telefone para Emergência: ");
-	    			vet.setTelefoneEmergencia(entrada.next());
-	    			System.out.println("CRMV: ");
-	    			vet.setCrmv(entrada.next());
-	    			
+	    			vet = cadastroVet();
+
 	    			break;
 	    		
 	    		case 2: // Cadastro 
 //	    			Pessoa pessoa = cadastraPessoa();
 //	    			Funcionario funcionario = cadastraFuncionario(1);
+//	    			func.setCargo("Atendente");
 	    			
 	//    			cadastroAtendente ();
 	    			break;
@@ -102,7 +95,7 @@ public class Main {
 	    			break;
 	    			
 	    		default:
-	    				System.out.println("Opção inexistente\n\n");
+	    			System.out.println("Opção inexistente\n\n");
     		}
     		
     	} while (opcao != 5);
@@ -199,65 +192,81 @@ public class Main {
 //    		
 //    }
     
-    public static Pessoa cadastraPessoa () {
-    	// TODO: Implementar a conversão de String para Data
-    	Pessoa pessoa = new Pessoa();
-    	
-    	System.out.println(" ----- Informações Pessoais ----- ");
-    	System.out.println("Nome: ");
-		pessoa.setNome(entrada.next());
+    
+    
+//    public static Funcionario cadastraFuncionario(int cargoFuncionario) {
+//    	Funcionario func = new Funcionario();
+//    	
+//    	System.out.println("\n ----- Dados do Funcionário ----- ");
+//    	if (cargoFuncionario == 0) { // Funcionário
+//    		func.setCargo("Veterinario");
+//    	} else { // Atendente
+//    		System.out.println("Insira dados do Atendente:");
+//    		func.setCargo("Atendente");
+//    	}
+//    	
+//		System.out.println("Data de Admissão: ");
+//		func.setDataAdmissao(entrada.next());
+//		System.out.println("Data de Demissão: ");
+//		func.setDataDemissao(entrada.next());
+//		
+//		return func;
+//    	
+//    }
+    
+
+
+	public static Veterinario cadastroVet() {
+		Veterinario vet = new Veterinario();
+		
+		System.out.println(" ----- Informações Pessoais ----- ");
+		System.out.println("Nome: ");
+		vet.setNome(entrada.next());
 		System.out.println("Sobrenome: ");
-		pessoa.setSobrenome(entrada.next());
+		vet.setSobrenome(entrada.next());
 		System.out.println("Sexo: ");
-		pessoa.setSexo(entrada.next());
+		vet.setSexo(entrada.next());
 		System.out.println("CPF: ");
-		pessoa.setCfp(entrada.next());
+		vet.setCfp(entrada.next());
 		System.out.println("Data de Nascimento:");
-		pessoa.setDataNascimento(entrada.next());
+		vet.setDataNascimento(entrada.next());
 		
 		System.out.println("\n ----- Endereço ----- ");
-		pessoa.setEndereco(cadastraEndereco());
-    	
-    	return pessoa;
-    }
-    
-    public static Endereco cadastraEndereco() {
-    	Endereco endereco = new Endereco();
-    	
-    	System.out.println("Logradouro: ");
-    	endereco.setLogradouro(entrada.next());
-    	System.out.println("Número: ");
-    	endereco.setNumero(entrada.nextInt());
-    	System.out.println("Bairro: ");
-    	endereco.setBairro(entrada.next());
-    	System.out.println("Cidade: ");
-    	endereco.setCidade(entrada.next());
-    	System.out.println("Estado: ");
-    	endereco.setEstado(entrada.next());
-    	System.out.println("CEP: ");
-    	endereco.setCep(entrada.next());
-    	
-    	return endereco;
-    }
-    
-    public static Funcionario cadastraFuncionario(int cargoFuncionario) {
-    	Funcionario func = new Funcionario();
-    	
-    	System.out.println("\n ----- Dados do Funcionário ----- ");
-    	if (cargoFuncionario == 0) { // Funcionario
-    		func.setCargo("Veterinario");
-    	} else { // Atendente
-    		System.out.println("Insira dados do Atendente:");
-    		func.setCargo("Atendente");
-    	}
-    	
-		System.out.println("Data de Admissão: ");
-		func.setDataAdmissao(entrada.next());
-		System.out.println("Data de Demissão: ");
-		func.setDataDemissao(entrada.next());
+		vet.setEndereco(cadastraEndereco());
 		
-		return func;
-    	
-    }
-    
+		System.out.println(" ----- Informações Profissionais ----- ");
+		vet.setCargo("Veterinario");
+		System.out.println("Data de Admissão: ");
+		vet.setDataAdmissao(entrada.next());
+		System.out.println("Data de Demissão: ");
+		vet.setDataDemissao(entrada.next());
+		System.out.println("E-mail: ");
+		vet.setEmail(entrada.next());
+		System.out.println("Telefone para Emergência: ");
+		vet.setTelefoneEmergencia(entrada.next());
+		System.out.println("CRMV: ");
+		vet.setCrmv(entrada.next());
+		
+		return vet;
+	}
+
+	public static Endereco cadastraEndereco() {
+		Endereco endereco = new Endereco();
+		
+		System.out.println("Logradouro: ");
+		endereco.setLogradouro(entrada.next());
+		System.out.println("Número: ");
+		endereco.setNumero(entrada.nextInt());
+		System.out.println("Bairro: ");
+		endereco.setBairro(entrada.next());
+		System.out.println("Cidade: ");
+		endereco.setCidade(entrada.next());
+		System.out.println("Estado: ");
+		endereco.setEstado(entrada.next());
+		System.out.println("CEP: ");
+		endereco.setCep(entrada.next());
+		
+		return endereco;
+	}
+
 }

@@ -1,15 +1,30 @@
 package com.company.model;
 
 public class Endereco {
-
+	/* Atributos */
     private String logradouro;
     private int numero;
     private String bairro;
     private String cidade;
     private String estado;
     private String cep;
-
-    public String getLogradouro() {
+    
+    /* Construtor */
+    public Endereco() {
+    }
+    
+    public Endereco(String logradouro, int numero, String bairro, String cidade, String estado, String cep) {
+		super();
+		this.logradouro = logradouro;
+		this.numero = numero;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.estado = estado;
+		this.cep = cep;
+	}
+    
+    /* Setters/Getters */
+	public String getLogradouro() {
         return logradouro;
     }
 
